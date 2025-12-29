@@ -1,9 +1,11 @@
+initChangeGridDimensionsBtn();
 makeGrid();
-addMouseOverListener();
+addGridMouseOverListener();
 
-//Create 16 x 16 divs
+
 function makeGrid(squaresPerSide = 16){
     const container = document.querySelector('#container');
+    container.replaceChildren();
 
     for(let i=0; i<squaresPerSide; i++){
         const rowDiv = document.createElement('div');
@@ -19,9 +21,31 @@ function makeGrid(squaresPerSide = 16){
     }
 }
 
-function addMouseOverListener(){
+function addGridMouseOverListener(){
     const container = document.querySelector('#container');
     container.addEventListener('mouseover', e => {
         e.target.classList.add('filled');
     });
+}
+
+function initChangeGridDimensionsBtn(){
+    const btn = document.querySelector('#changeGridBtn');
+    btn.addEventListener('click', takeUserInput);
+}
+
+function takeUserInput(){
+    let userInput = 0;
+    let keepGoing = true;
+    while(keepGoing){
+        userInput = prompt('Enter an integer value between 1 and 100 for the dimensions of the grid.');
+        const userInputAsNumber = +userInput;
+
+        if(Number.isInteger(userInputAsNumber)){
+            if(userInputAsNumber > 0 && userInputAsNumber <= 100){
+                keepGoing = false;
+                userInput = userInputAsNumber;
+            }
+        }
+        makeGrid(userInput);
+    }
 }

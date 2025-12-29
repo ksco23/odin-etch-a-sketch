@@ -28,3 +28,8 @@ div.cell{
 div.cell.filled{
     background-color: #000;
 }
+
+#changeGridBtn{
+    padding: 5px;
+    margin: 15px;
+}
