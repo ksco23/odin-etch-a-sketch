@@ -1,6 +1,6 @@
 initChangeGridDimensionsBtn();
 makeGrid();
-addGridMouseOverListener();
+addGridMouseListeners();
 
 
 function makeGrid(squaresPerSide = 16){
@@ -21,10 +21,14 @@ function makeGrid(squaresPerSide = 16){
     }
 }
 
-function addGridMouseOverListener(){
+function addGridMouseListeners(){
     const container = document.querySelector('#sketchContainer');
+    let rgbArray = generateRandomRGB();
+    container.addEventListener('mouseleave', e => {
+        rgbArray = generateRandomRGB();
+    });
     container.addEventListener('mouseover', e => {
-        e.target.classList.add('filled');
+        e.target.style.backgroundColor = `rgb(${rgbArray[0]}, ${rgbArray[1]}, ${rgbArray[2]})`;
     });
 }
 
@@ -64,4 +68,15 @@ function takeUserInput(){
     if(userInput !== null){
         makeGrid(userInput);
     }
+}
+
+function generateRandomRGB(){
+    //Choose 3 numbers between 0 and 255
+    const rgbArray = [];
+
+    for (let i=0; i<3; i++){
+        rgbArray.push(Math.floor(Math.random() * 255));
+    }
+
+    return rgbArray;
 }
