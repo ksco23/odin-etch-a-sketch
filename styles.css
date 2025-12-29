@@ -32,9 +32,13 @@ div.row{
 }
 
 div.cell{
-    background-color: #d0d0d0;
     flex: 1;
     aspect-ratio: 1 / 1;
+}
+
+#sketchContainer,
+div.cell{
+    background-color: #d0d0d0;
 }
 
 div.cell.filled{
