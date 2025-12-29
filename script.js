@@ -1,4 +1,5 @@
 makeGrid();
+addMouseOverListener();
 
 //Create 16 x 16 divs
 function makeGrid(squaresPerSide = 16){
@@ -16,4 +17,11 @@ function makeGrid(squaresPerSide = 16){
 
         container.appendChild(rowDiv);
     }
+}
+
+function addMouseOverListener(){
+    const container = document.querySelector('#container');
+    container.addEventListener('mouseover', e => {
+        e.target.classList.add('filled');
+    });
 }
