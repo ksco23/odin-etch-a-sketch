@@ -24,14 +24,14 @@ function makeGrid(squaresPerSide = 16){
 function addGridMouseListeners(){
     const container = document.querySelector('#sketchContainer');
     let rgbArray = generateRandomRGB();
-    let gridCellOverCounter = 1;
+    let gridCellOverCounter = 0;
     container.addEventListener('mouseleave', e => {
         rgbArray = generateRandomRGB();
-        gridCellOverCounter++;
+        gridCellOverCounter = 0;
     });
     container.addEventListener('mouseover', e => {
         const alpha = gridCellOverCounter / 10;
-        //gridCellOverCounter++;
+        gridCellOverCounter++;
         e.target.style.backgroundColor = `rgba(${rgbArray[0]}, ${rgbArray[1]}, ${rgbArray[2]}, ${alpha})`;
     });
 }
