@@ -37,15 +37,31 @@ function takeUserInput(){
     let userInput = 0;
     let keepGoing = true;
     while(keepGoing){
-        userInput = prompt('Enter an integer value between 1 and 100 for the dimensions of the grid.');
-        const userInputAsNumber = +userInput;
+        userInput = prompt('Enter an integer value between 1 and 100 to change the dimensions of the grid.');
 
-        if(Number.isInteger(userInputAsNumber)){
-            if(userInputAsNumber > 0 && userInputAsNumber <= 100){
-                keepGoing = false;
-                userInput = userInputAsNumber;
+        if(userInput === null){
+            keepGoing = false;
+        }
+
+        if(keepGoing){
+            const userInputAsNumber = +userInput;
+
+            if(Number.isInteger(userInputAsNumber)){
+                if(userInputAsNumber > 0 && userInputAsNumber <= 100){
+                    keepGoing = false;
+                    userInput = userInputAsNumber;
+                }
+                else{
+                    alert(`${userInput} isn't between 1 and 100. Please enter an integer between 1 and 100.`);
+                }
+            }
+            else{
+                alert(`${userInput} is not an integer. Please enter an integer.`)
             }
         }
+    }
+
+    if(userInput !== null){
         makeGrid(userInput);
     }
 }
