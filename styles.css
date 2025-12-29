@@ -4,14 +4,26 @@ html{
 *, *::before, *::after{
     box-sizing: inherit;
 }
+body{
+    padding: 0;
+    margin: 0;
+}
 
 #container{
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 500px;
-    max-height: 500px;
-    margin: 0 auto;
+    max-width: 600px;
+    margin: 15px auto;
+    padding: 0 50px 50px;
+    background-color: #cb0606;
+    border-radius: 20px;
+}
+
+#sketchContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 
 div.row{
@@ -32,4 +44,11 @@ div.cell.filled{
 #changeGridBtn{
     padding: 5px;
     margin: 15px;
+}
+
+.titleHeader{
+    margin: 15px 15px 0 15px;
+    color: #fff;
+    font-style: italic;
+    font-family: Arial, Helvetica, sans-serif;
 }

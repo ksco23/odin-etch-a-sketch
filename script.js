@@ -4,7 +4,7 @@ addGridMouseOverListener();
 
 
 function makeGrid(squaresPerSide = 16){
-    const container = document.querySelector('#container');
+    const container = document.querySelector('#sketchContainer');
     container.replaceChildren();
 
     for(let i=0; i<squaresPerSide; i++){
@@ -22,7 +22,7 @@ function makeGrid(squaresPerSide = 16){
 }
 
 function addGridMouseOverListener(){
-    const container = document.querySelector('#container');
+    const container = document.querySelector('#sketchContainer');
     container.addEventListener('mouseover', e => {
         e.target.classList.add('filled');
     });
@@ -37,7 +37,7 @@ function takeUserInput(){
     let userInput = 0;
     let keepGoing = true;
     while(keepGoing){
-        userInput = prompt('Enter an integer value between 1 and 100 to change the dimensions of the grid.');
+        userInput = prompt('Enter an integer value between 1 and 100 to change the resolution of the grid.');
 
         if(userInput === null){
             keepGoing = false;
